@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    
+    <div id="app">
+
+        <div @mousemove="handlerMouse" style="background-color: yellow;height: 300px;;">
+            Valore di x e di y {{x}} {{y}}
+        </div>
+
+        <!---definire una regione DIV DOVE QUANDO IL MOUSE mostra un mex..-->
+        <!--@mouseover --->
+
+        <div @mouseleave="handlerMouseLeave" @mouseover="handlerMouseOver" 
+            style="background-color:green;height:300px;">
+
+            <h1 style="color:white;">{{frase}}</h1>
+
+        </div>
+
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

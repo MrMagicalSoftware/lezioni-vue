@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100&family=Oswald&display=swap" rel="stylesheet"> 
+    <link href="teach.css" rel="stylesheet"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    
+
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="col-md-12 text-center">
+                <div id="app">
+                    <p style="font-family: 'Grenze Gotisch', cursive;font-size:30px;">Numero di posti del divano {{numeroPosti}}</p>
+                    
+                    <p>{{colore}}</p>
+
+                    <span style="background-color: green;">##############</span>
+
+                    <p @click="changeToRed()">Clicca su questo paragrafo per Aumentare</p>
+                    
+                    <p v-if="showDivano">VISUALIZZO SOLAMENTE SE E' VERO</p>
+
+
+                    <div class="text-center">
+                        <button @click="numeroPosti--" class="btn btn-danger">-</button>
+                        <button @click="numeroPosti++" class="btn btn-success">+</button>
+                    </div>
+
+
+
+                    <div  v-if="awesome">
+                        <h1>Vue is awesome!</h1>
+                        <img src ="data:image/jpeg;base64,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" class="" alt="my Image" />
+                    </div>
+                    <div v-else>
+                        <h1>Oh no 😢</h1>
+                        
+                        <p>{{new Date().toString()}}</p>
+
+                    </div>
+                  
+                    <button @click="awesomeFun()" class="btn btn-pinkie">Do something</button>
+
+
+                    <button-counter></button-counter>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+  
+
+    <script src="app.js"></script>
+</body>
+</html>
